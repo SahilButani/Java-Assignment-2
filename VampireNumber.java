@@ -1,9 +1,16 @@
 import java.util.*;
 public class VampireNumber{
+    /*
+     *This function returns the length of a number.
+     */
     private static int length(long num){
         return Long.toString(num).length();
     }
-
+    
+    /*
+     *This function checks if a number is vampire number of not and returns a boolean.
+     */
+    
     private static boolean checkVampireNumber(long vampire_number, long factor_1, long factor_2){
         if(Long.toString(factor_1).endsWith("0") && Long.toString(factor_2).endsWith("0")) return false;
 
@@ -17,8 +24,12 @@ public class VampireNumber{
         Arrays.sort(factor_2_bytes);
         return Arrays.equals(factor_1_bytes, factor_2_bytes);
     }
-
-    public static void main(String[] args) {
+    /*
+     *This function generates two factor of a number and then calls checkVampireNumber and if it's a vampire number
+     *it is added to a treeset and printed.
+     */ 
+    public static void main(String[] args)
+    {
         TreeSet<Long> vampire_set = new TreeSet<Long>();
         for (long i = 10; vampire_set.size() <= 100; i++) {
             if ((length(i) % 2) != 0) {
